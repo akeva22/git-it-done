@@ -11,7 +11,7 @@ var formSubmitHandler = function (event) {
 
   if (username) {
     getUserRepos(username);
-    nameInputEl.value = "";
+    // nameInputEl.value = "";
   } else {
     alert("Enter a Github username")
   }
@@ -26,6 +26,7 @@ var getUserRepos = function (user) {
     if (response.ok) {
       response.json().then(function (data) {
         displayRepos(data, user);
+        nameInputEl.value = "";
       });
     } else {
       alert("Error: GitHub User Not Found");
